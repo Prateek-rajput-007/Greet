@@ -13,7 +13,7 @@ const GreetingForm = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/greet?name=${name}`
+        `https://greet-six.vercel.app/api/greet?name=${name}`
       );
       setGreeting(response.data.message);
     } catch (error) {
