@@ -6,20 +6,22 @@ const GreetingForm = () => {
   const [greeting, setGreeting] = useState("");
 
   const fetchGreeting = async () => {
-    if (!name) {
-      setGreeting("Name is required.");
-      return;
-    }
+  if (!name) {
+    setGreeting("Name is required.");
+    return;
+  }
 
-    try {
-      const response = await axios.get(
-        `https://greet-backend.onrender.com/api/greet?name=${name}`
-      );
-      setGreeting(response.data.message);
-    } catch (error) {
-      setGreeting("Error fetching greeting.");
-    }
-  };
+  try {
+    // ✅ Use the correct API URL
+    const API_URL = "https://greet-backend.onrender.com";
+    
+    const response = await axios.get(`${API_URL}/api/greet?name=${name}`);
+    setGreeting(response.data.message);
+  } catch (error) {
+    setGreeting("Error fetching greeting.");
+  }
+};
+
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
