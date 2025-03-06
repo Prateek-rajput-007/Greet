@@ -12,7 +12,7 @@ const app = express();
 connectDB();
 
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://greet-h7n7.vercel.app", credentials: true }));
 app.use(express.json());
 
 
