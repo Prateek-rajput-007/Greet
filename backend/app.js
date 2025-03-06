@@ -12,7 +12,16 @@ const app = express();
 connectDB();
 
 
-app.use(cors({ origin: "https://greet-h7n7.vercel.app", credentials: true }));
+app.use(cors());
+
+const allowedOrigins = ["https://greet-h7n7.vercel.app"];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: "GET",
+    allowedHeaders: "Content-Type",
+  })
+);
 app.use(express.json());
 
 
